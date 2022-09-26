@@ -1,6 +1,5 @@
 <template>
-    <div>
-        <header class="header" />
+    <div>        
         <AppLayoutLinks />
         <slot />
     </div>
