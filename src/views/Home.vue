@@ -71,7 +71,7 @@
           stars: this.star,
           rating: 0,
           comment: '',
-          beer_id: 0
+          beer_id: 0,          
         }
       },
       props: {
@@ -87,8 +87,7 @@
         async searchBeer(){
           try{
            const response = await axios.get("http://localhost:3001/api/v1/beers/searchByName?beer_name=" + this.beer_name, {headers: {'x-user': 'thang@123.com'}});
-           this.beers = response.data.data;
-           console.log("env: " + process.env.VITE_ENDPOINT_URL);
+           this.beers = response.data.data;           
           }catch(err){
             this.beers = [];
             console.log(err);
@@ -101,18 +100,14 @@
               comments: this.comment
             }
            await axios.post("http://localhost:3001/api/v1/rating/" + this.beer_id , bodyRequest, {headers: {'x-user': 'thang@123.com'}});                      
-          }catch(err){
-            this.beers = [];
+          }catch(err){            
             console.log(err);
           }
         },
         async getRatingByBeerId(){
           try{
-           const response = await axios.get("http://localhost:3001/api/v1/rating/" + this.beer_name, {headers: {'x-user': 'thang@123.com'}});
-           this.beers = response.data.data;
-           console.log("env: " + process.env.VITE_ENDPOINT_URL);
-          }catch(err){
-            this.beers = [];
+           const response = await axios.get("http://localhost:3001/api/v1/rating/" + this.beer_name, {headers: {'x-user': 'thang@123.com'}});           
+          }catch(err){            
             console.log(err);
           }
         },
