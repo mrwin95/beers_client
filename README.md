@@ -1,4 +1,4 @@
-# client
+# Beers client app
 
 ## Project setup
 ```
